@@ -9,7 +9,7 @@ COPY . /app
 
 RUN apt update
 RUN apt -y install curl
-RUN apt -y install libvips
+RUN apt -y install libvips42=8.6.5-1
 RUN apt -y install python
 RUN apt -y install python-pip
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
