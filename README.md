@@ -1,5 +1,7 @@
 # Testing environment for CVE-2019-6976
-This repository contains all the files and information to set up an environment with the vulnerable libvips library to play around with CVE-2019-6976.
+This repository contains all the files and information to set up an environment with the vulnerable libvips library to play around with CVE-2019-6976. 
+
+The main purpose of this image is to provide a testing environment for the entropy calculator Upload Scanner addon. (https://github.com/Tare05/upload-scanner/tree/entropy)
 
 Set up
 ======
@@ -10,16 +12,13 @@ You can use the following docker command to pull down the docker image:
 
 After the image is downloaded, start the docker container:
 
-`docker run -p 8085:8085 tare05/libvips`
+`docker run -p 8085:8085 tare05/libvipsvuln`
 
 This command will start the docker container with a vulnerable python server listening on your machine at port 8085.
 
 The container runs in a while true loop as a workaround to restart the python server if it crashes from memory corruption, so in order to shut down the container use the following command:
 
 `docker kill <Container ID>`
-
-**Please note** that this image will only be vulnerable while the patched version of libvips does not get pushed into the Ubuntu cosmic cuttlefish repo. 
-You can check the actual status of it here: https://people.canonical.com/~ubuntu-security/cve/2019/CVE-2019-6976.html
 
 
 File descriptions
